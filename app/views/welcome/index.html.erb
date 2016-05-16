@@ -1,0 +1,21 @@
+<center>
+
+<h1>Ginger Ails</h1>
+<!-- ENTER ADDRESS -->
+<h2>On call for what ails you!</h2>
+<!-- Single button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    SELECT YOUR AILMENT <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+  <% Ailment.all.each do |ailment| %>
+    <li><%= link_to ailment.name, ailments_path(id: ailment.id) %></li>
+    <% end %>
+  </ul>
+</div>
+</center>
+
+
+
+
