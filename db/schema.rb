@@ -11,14 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517144527) do
+ActiveRecord::Schema.define(version: 20160518134910) do
 
   create_table "ailments", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "shopping_list"
+    t.decimal  "price"
   end
+
+  create_table "carts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "carts", ["user_id"], name: "index_carts_on_user_id"
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer  "quantity",   default: 1
+    t.integer  "cart_id"
+    t.integer  "ailment_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "line_items", ["ailment_id"], name: "index_line_items_on_ailment_id"
+  add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
