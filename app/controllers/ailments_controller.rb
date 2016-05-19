@@ -1,6 +1,6 @@
 class AilmentsController <ApplicationController
 
-  def index
+  def show
      @selected_ailment = Ailment.find(params[:id])
   end
 
@@ -12,7 +12,7 @@ end
 private
 
 def ailment_params
-  params.require(:ailment).permit(:name, :description)
+  params.require(:ailment).permit(:name, :description, :shopping_list)
 end
 
 end 

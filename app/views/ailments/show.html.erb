@@ -1,0 +1,10 @@
+<!-- after we select our ailment on the root page welcome#index we are directed to our ailments show page where we shop for our ailment -->
+
+<%= @selected_ailment.name %>
+<br>
+<%= @selected_ailment.description %>
+<br>
+<%= @selected_ailment.shopping_list %>
+<br>
+
+ <%= link_to "Purchase Remedy Kit", line_items_path(ailment_id: @selected_ailment.id), method: :post, class: "btn btn-success btn-sm" %>
