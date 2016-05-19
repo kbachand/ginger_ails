@@ -15,11 +15,13 @@
 		<td><%= item.ailment.name %></td>
 		<td><%= item.quantity %></td>
 		<td><%= number_to_currency item.ailment.price %></td>
+		<td><%= number_to_currency item.total_price %></td>
 	</tr>
 	<% end %>
 
 </tbody>
 </table>
+<h3>Order Subtotal: <%= number_to_currency @cart.subtotal %></h3>
 
 <%= link_to "Add Another Remedy Kit", root_path, class: "btn btn-default btn-sm" %>
 <%= link_to "Empty Cart", @cart, method: :delete, class: "btn btn-warning btn-sm" %>
