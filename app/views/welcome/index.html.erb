@@ -7,10 +7,10 @@
 <body>
 <!-- Added plain sign in and out buttons for now until we can replace the modal -->
  <% if current_user %>
-        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %></li>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
        <% else %>
-       <li><%= link_to "Login", user_session_path, class: "btn btn-default" %></li>
-       <li><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default" %></li>
+       <%= link_to "Login", user_session_path, class: "btn btn-primary" %>
+       <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
       <% end %>
 
 <center>
@@ -19,7 +19,7 @@
 <h2>On call for what ails you!</h2>
 <!-- Single button -->
 <div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     SELECT YOUR AILMENT <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">

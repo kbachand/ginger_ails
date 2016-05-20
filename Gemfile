@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'figaro'
+gem 'stripe'
 gem 'tzinfo-data'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

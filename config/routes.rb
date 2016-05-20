@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :ailments, only: [:create, :show]
   resources :carts
   resources :line_items
+  post "order_complete" => "carts#order_complete"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
