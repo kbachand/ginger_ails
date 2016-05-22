@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#so we don't need to type in the lat and long
+gem 'geocoder'
 gem 'figaro'
 gem 'stripe'
 gem 'tzinfo-data'

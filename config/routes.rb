@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   resources :carts
   resources :line_items
   post "order_complete" => "carts#order_complete"
+  resources :service_areas, only: [:create, :new, :index, :show]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

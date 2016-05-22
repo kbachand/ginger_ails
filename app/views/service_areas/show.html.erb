@@ -1,0 +1,31 @@
+<h1>Ginger Ails Service Area</h1>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @check_service_area.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @check_service_area.longitude %>
+</p>
+
+<p>
+  <strong>Your Address:</strong>
+  <%= @check_service_area.address %>
+</p>
+
+<p>
+	Click Map to Locate Your Address
+</p>
+
+<!-- In Google Map have to do this in a div? -->
+<div id="sa-ck-map"></div>
+
+<%= link_to "Home", root_path %>
+
+<%= javascript_tag do %>
+latitude = '<%= j @check_service_area.latitude.to_s %>';
+longitude = '<%= j @check_service_area.longitude.to_s %>';
+address = '<%= j @check_service_area.address %>';
+<% end %>
