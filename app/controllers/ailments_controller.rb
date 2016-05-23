@@ -2,6 +2,8 @@ class AilmentsController <ApplicationController
 
   def show
      @selected_ailment = Ailment.find(params[:id])
+     @review = Review.new
+     @reviews = @selected_ailment.reviews.order('created_at DESC')
   end
 
 def create

@@ -8,3 +8,28 @@
 <br>
 
  <%= link_to "Purchase Remedy Kit", line_items_path(ailment_id: @selected_ailment.id), method: :post, class: "btn btn-success btn-sm" %>
+
+ <div class="panel panel-default">
+	<div class="panel-heading">
+		REVIEWS
+</div>
+
+	<div class="panel-body">
+		<%= render @review %>
+	</div>
+
+	<% if current_user %> 
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			Write a Review
+		</div>
+		<div class="panel-body">
+			<%= render "reviews/form" %>
+		</div>
+	</div>
+	<% end %>
+
+</div>
+
+<%= link_to "Select a Different Kit", root_path, class: "btn btn-default btn-sm" %>
+

@@ -1,0 +1,11 @@
+<% @selected_ailment.reviews.each do |review| %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+	<h4><%= review.author %></h4>
+	<p><%= time_ago_in_words(review.created_at) %></p>
+  </div>
+  <div class="panel-body">
+	<%= review.content %>
+  </div>
+</div>
+<% end %>

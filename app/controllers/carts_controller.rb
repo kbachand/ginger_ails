@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+before_action :authenticate_user!
 before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
   # GET /carts
@@ -33,14 +34,10 @@ before_action :set_cart, only: [:show, :edit, :update, :destroy]
   def show
     # the cart is not secure until we make sure you can only see a cart that matches you as a user
     # may need to drop your database after this is implemented rake db:reset add products and users
-    if current_user
       unless current_user.id == @cart.user_id
       flash[:notice] = "You don't have access to that order!"
       redirect_to root_path
       end
-    else
-      redirect_to user_session_path, notice: 'Please sign-in first.'
-    end
   end
 
   # GET /carts/new

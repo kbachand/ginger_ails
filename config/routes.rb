@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :carts
   resources :line_items
   post "order_complete" => "carts#order_complete"
+  resources :reviews, only: [:create, :new, :edit, :update, :destroy]
   resources :service_areas, only: [:create, :new, :index, :show]
 
   # Example of regular route:

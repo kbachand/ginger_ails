@@ -1,0 +1,35 @@
+<%= form_for(@review) do |f| %>
+<!-- Setting up a form for teacher comments -->
+<!-- First we will catch and show and error messages -->
+<% if @review.errors.any? %>
+<div class="error-explanation">
+	<h2><%= pluralize(@review.errors.count, "Error") %> prohibited post from being saved: </h2>
+	<ul>
+	 <% @review.errors.full.messages.each do |message| %>
+	 <li><%= message %></li>
+	 <% end %>
+    </ul>
+</div>
+<% end %>
+
+ <div class="form-group hidden">
+    <%= f.text_field :author, value: current_user.email %>
+ </div>
+
+ <div class="form-group">
+    <%= f.text_area :content, class: "form-control", rows: "4", placeholder: "Enter your comment here" %>
+ </div>
+
+ <div class="form-group hidden">
+    <%= f.text_field :ailment_id, value: @selected_ailment.id %>
+ </div>
+
+ <div class="form-group hidden">
+    <%= f.text_field :user_id, value: current_user.id %>
+ </div>
+
+<div class="actions">
+    <%= f.submit "Post", class: "btn btn-default" %>
+ </div>
+
+<% end %>
