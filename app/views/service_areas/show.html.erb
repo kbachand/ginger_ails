@@ -16,15 +16,27 @@
 </p>
 
 <p>
-	Click Map to Locate Your Address
+  <strong>Your Zipcode:</strong>
+  <%= @check_service_area.zipcode %>
 </p>
 
-<!-- In Google Map have to do this in a div? -->
+<!-- Calling the check_address method in the ServiceArea model, it is returning a marker color that indicates whether or not an address is in our service area -->
+<% marker_color = @check_service_area.check_address(@check_service_area.zipcode) %>
+
+<p>
+<% if marker_color == "red" %>
+   <strong>You live in our service area!</strong>
+   <% else %>
+   <strong>We are sorry you do not live in our service area, please check back soon!</strong>
+   <% end %>
+</p>
+
 <div id="sa-ck-map"></div>
 
 <%= link_to "Home", root_path %>
 
 <%= javascript_tag do %>
+zipcodeColor = '<%= j marker_color %>';
 latitude = '<%= j @check_service_area.latitude.to_s %>';
 longitude = '<%= j @check_service_area.longitude.to_s %>';
 address = '<%= j @check_service_area.address %>';
