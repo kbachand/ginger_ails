@@ -24,6 +24,6 @@ class ServiceAreasController < ApplicationController
 
 private
   def service_area_params
-	params.require(:service_area).permit(:address, :latitude, :longitude)
+	params.require(:service_area).permit(:address, :latitude, :longitude, :zipcode)
   end
 end
