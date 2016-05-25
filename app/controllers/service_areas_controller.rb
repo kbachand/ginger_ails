@@ -16,6 +16,7 @@ class ServiceAreasController < ApplicationController
   end
 
   def index
+    @check_service_area = ServiceArea.new
   end
 
   def show
