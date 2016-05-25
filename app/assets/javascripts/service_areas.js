@@ -316,18 +316,19 @@ var delivery28204Area = new google.maps.Polygon({
 
    delivery28204Area.setMap(map);
 
-   var marker = new google.maps.Marker({
+     var marker = new google.maps.Marker({
      position: markerPosition,
      map: map,
      title: address,
-     icon: {
-     	path: google.maps.SymbolPath.CIRCLE,
+    icon: {
+     	path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
      	fillColor: zipcodeColor,
      	fillOpacity: 1.0,
      	strokeColor: 'white',
      	strokeWeight: .5,
      	scale: 10
-     }
+     },
+     animation: google.maps.Animation.BOUNCE
     });
  }
 
