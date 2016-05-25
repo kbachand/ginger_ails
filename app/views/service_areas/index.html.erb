@@ -1,7 +1,11 @@
-<h1>Ginger Ails Service Area</h1>
+<%=link_to "Home",root_path, class: "btn btn-primary" %>
+<% if current_user %>
+ <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+ <% end %>
+<h1 class="service_area">Ginger Ails Service Area</h1>
 
 <%= render 'form' %>
+<br>
 <!-- In Google Map have to do this in a div? -->
 <div id="sa-map"></div>
 
-<%= link_to "Check My Address", new_service_area_path %>

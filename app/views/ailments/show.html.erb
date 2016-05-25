@@ -1,13 +1,26 @@
+<%=link_to "Home",root_path, class: "btn btn-primary" %>
+<% if current_user %>
+ <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+ <% end %>
 <!-- after we select our ailment on the root page welcome#index we are directed to our ailments show page where we shop for our ailment -->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 
+<div class="ailments">
 <%= @selected_ailment.name %>
 <br>
 <%= @selected_ailment.description %>
 <br>
 <%= @selected_ailment.shopping_list %>
 <br>
+<%= number_to_currency @selected_ailment.price %>
+</div>
+<br>
+<br>
 
  <%= link_to "Purchase Remedy Kit", line_items_path(ailment_id: @selected_ailment.id), method: :post, class: "btn btn-success btn-sm" %>
+ <%= link_to "Select a Different Kit", root_path, class: "btn btn-default btn-sm" %>
+<br>
+<br>
 
  <div class="panel panel-default">
 	<div class="panel-heading">
@@ -30,6 +43,4 @@
 	<% end %>
 
 </div>
-
-<%= link_to "Select a Different Kit", root_path, class: "btn btn-default btn-sm" %>
 

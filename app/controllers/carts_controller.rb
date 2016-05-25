@@ -32,6 +32,7 @@ before_action :set_cart, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @user = User.find_by(params[:id])
     # the cart is not secure until we make sure you can only see a cart that matches you as a user
     # may need to drop your database after this is implemented rake db:reset add products and users
       unless current_user.id == @cart.user_id

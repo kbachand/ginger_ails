@@ -1,8 +1,8 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Ginger Ails</title>
-
 </head>
 <body>
 <!-- Added plain sign in and out buttons for now until we can replace the modal -->
@@ -12,13 +12,16 @@
        <% else %>
        <%= link_to "Login", user_session_path, class: "btn btn-primary" %>
        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
-       <%= link_to "Check Service Area", service_areas_path, class: "btn btn-info" %>
+       <%= link_to "Check My Address", service_areas_path, class: "btn btn-info" %>
       <% end %>
 
 <center>
+<div class="font_title">
 <h1>Ginger Ails</h1>
-<!-- ENTER ADDRESS -->
+</div>
+<div class="font_subtitle">
 <h2>On call for what ails you!</h2>
+</div>
 <!-- Single button -->
 <div class="btn-group">
   <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
