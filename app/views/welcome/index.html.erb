@@ -13,10 +13,24 @@
 </div>
 <br>
 <br>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal">
+
+<% if current_user %>
+ <div class="btn-group">
+  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    SELECT YOUR AILMENT <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+  <% Ailment.all.each do |ailment| %>
+    <li><%= link_to ailment.name, ailment_path(id: ailment.id) %></li>
+    <% end %>
+  </ul>
+  </div>
+  </center>
+<% else %>
+  <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal">
   Check Your Address
-</button>
+  </button>
+<% end %>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
