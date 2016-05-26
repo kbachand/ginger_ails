@@ -50,12 +50,12 @@ body {
 .order_complete {
     font-family: 'Dynalight', cursive;
     font-size: 4em;
-    color: white;
+    color: black;
 }
 
 .order_details {
     font-family: 'Open Sans Condensed', sans-serif;
-    color: white;
+    color: black;
 }
 
 .service_area {
