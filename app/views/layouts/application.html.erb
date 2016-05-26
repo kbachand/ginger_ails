@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-
+<div id="container">
  <p class="notice"><%= notice %></p>
 <html>
+<div id="header">
 <head>
   <title>Ginger Ails - On call for what Ails you!</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 <link href='https://fonts.googleapis.com/css?family=Dynalight' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Dynalight' rel='stylesheet' type='text/css'>
-</head>
+</head></div>
+<div id="body">
 <body>
+<%= render 'layouts/navbar' %>
 
 <div class="container">
 <%= yield %>
@@ -25,5 +29,17 @@
 <!-- Google API Key, copied from last script tag in getting started example -->
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>"></script>
 
-</body>
+</body></div>
+ <div id="footer">
+  <div class="container">
+        <div class="text-center center-block">
+              <a href="https://www.facebook.com"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+              <a href="https://twitter.com"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+              <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+              <a href="mailto:info@gingerails.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+        </div>
+  </div>
+
+ </footer>
+</div> <!--container div -->
 </html>

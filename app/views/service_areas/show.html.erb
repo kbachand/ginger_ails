@@ -1,8 +1,4 @@
-<% if current_user %>
- <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
- <% end %>
- <%=link_to "Home",root_path %>
-
+<div class="jumbotron">
 <h1>Ginger Ails Service Area</h1>
 
 <p>
@@ -20,11 +16,26 @@
 
 <p>
 <% if marker_color == "red" %>
-   <strong>You live in our service area!</strong>
+   <center><strong><h2>You live in our service area!</h2></strong></center>
+   <center>
+   <!-- Single button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    SELECT YOUR AILMENT <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+  <% Ailment.all.each do |ailment| %>
+    <li><%= link_to ailment.name, ailment_path(id: ailment.id) %></li>
+    <% end %>
+  </ul>
+</div>
+</center>
+
    <% else %>
-   <strong>We are sorry you do not live in our service area, please check back soon!</strong>
+   <center><strong><h3>We are sorry you do not live in our service area, please check back soon!</h3></strong></center>
    <% end %>
 </p>
+</div>
 
 <div id="sa-ck-map"></div>
 

@@ -1,20 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>Ginger Ails</title>
 </head>
 <body>
-<!-- Added plain sign in and out buttons for now until we can replace the modal -->
- <% if current_user %>
-        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
-       <%= link_to "Check Service Area", service_areas_path, class: "btn btn-info" %>
-       <% else %>
-       <%= link_to "Login", user_session_path, class: "btn btn-primary" %>
-       <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
-       <%= link_to "Check My Address", service_areas_path, class: "btn btn-info" %>
-      <% end %>
-
 <center>
 <div class="font_title">
 <h1>Ginger Ails</h1>
@@ -22,18 +11,27 @@
 <div class="font_subtitle">
 <h2>On call for what ails you!</h2>
 </div>
-<!-- Single button -->
-<div class="btn-group">
-  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    SELECT YOUR AILMENT <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-  <% Ailment.all.each do |ailment| %>
-    <li><%= link_to ailment.name, ailment_path(id: ailment.id) %></li>
-    <% end %>
-  </ul>
+<br>
+<br>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal">
+  Check Your Address
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Check Your Address</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'service_areas/form' %>
+      </div>
+    </div>
+  </div>
 </div>
-</center>
 </body>
 </html>
 
