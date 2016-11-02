@@ -1,8 +1,8 @@
 Rails.configuration.stripe = {
 
-  :publishable_key => "#{ENV['stripe_test_publishable_key']}",
+  :publishable_key => "#{ENV['pk_test_vPU1WRKoaw0ZWwGEC8cQGyiC']}",
 
-  :secret_key => "#{ENV['stripe_test_secret_key']}"
+  :secret_key => "#{ENV['sk_test_3y7d5X8xR2lwldjKNwt2Ev2e']}"
 
 }
 
